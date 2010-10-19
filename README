@@ -1,0 +1,11 @@
+# Download and unzip http://code.google.com/webtoolkit/download_2_1_rc1.html
+mvn install:install-file -DgroupId=com.google.gwt -DartifactId=gwt-user -Dversion=2.1.0.RC1 -Dpackaging=jar -Dfile=../gwt-2.1.0.RC1/gwt-user.jar 
+mvn install:install-file -DgroupId=com.google.gwt -DartifactId=gwt-dev -Dversion=2.1.0.RC1 -Dpackaging=jar -Dfile=../gwt-2.1.0.RC1/gwt-dev.jar 
+mvn install:install-file -DgroupId=com.google.gwt -DartifactId=gwt-soyc-vis -Dversion=2.1.0.RC1 -Dpackaging=jar -Dfile=../gwt-2.1.0.RC1/gwt-soyc-vis.jar
+
+mvn clean 
+mvn compile 
+mvn gwt:compile
+mvn war:exploded
+mvn gwt:run
+
