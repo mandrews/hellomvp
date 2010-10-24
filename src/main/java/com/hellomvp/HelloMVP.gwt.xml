@@ -13,14 +13,10 @@
   <!-- Other module inherits                                      -->
   <inherits name="com.google.gwt.activity.Activity"/>
   <inherits name="com.google.gwt.place.Place"/>
+  <inherits name="com.google.gwt.inject.Inject"/>
 
   <!-- Specify the app entry point class.                         -->
   <entry-point class='com.hellomvp.client.HelloMVP'/>
-
-  <!-- Use ClientFactoryImpl by default -->
-  <replace-with class="com.hellomvp.client.ClientFactoryImpl">
-    <when-type-is class="com.hellomvp.client.ClientFactory"/>
-  </replace-with>
 
   <!-- Specify the paths for translatable code                    -->
   <source path='client'/>

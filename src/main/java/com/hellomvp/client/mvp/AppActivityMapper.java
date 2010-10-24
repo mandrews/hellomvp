@@ -1,43 +1,32 @@
 package com.hellomvp.client.mvp;
 
+import com.google.inject.Inject;
+
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.activity.shared.Activity;
 import com.google.gwt.activity.shared.ActivityMapper;
 import com.google.gwt.place.shared.Place;
-import com.hellomvp.client.ClientFactory;
-import com.hellomvp.client.activity.GoodbyeActivity;
-import com.hellomvp.client.activity.HelloActivity;
-import com.hellomvp.client.place.GoodbyePlace;
+
+import com.hellomvp.client.HelloMVPInjector;
 import com.hellomvp.client.place.HelloPlace;
+import com.hellomvp.client.place.GoodbyePlace;
+import com.hellomvp.client.activity.HelloActivity;
+import com.hellomvp.client.activity.GoodbyeActivity;
 
 public class AppActivityMapper implements ActivityMapper {
 
-	private ClientFactory clientFactory;
+    private final HelloMVPInjector injector = GWT.create(HelloMVPInjector.class);
 
-	/**
-	 * AppActivityMapper associates each Place with its corresponding
-	 * {@link Activity}
-	 * 
-	 * @param clientFactory
-	 *            Factory to be passed to activities
-	 */
-	public AppActivityMapper(ClientFactory clientFactory) {
+	public AppActivityMapper() {
 		super();
-		this.clientFactory = clientFactory;
 	}
 
-	/**
-	 * Map each Place to its corresponding Activity. This would be a great use
-	 * for GIN.
-	 */
-	@Override
 	public Activity getActivity(Place place) {
-		// This is begging for GIN
 		if (place instanceof HelloPlace)
-			return new HelloActivity((HelloPlace) place, clientFactory);
+            return injector.getHelloActivity().setPlace((HelloPlace) place);
 		else if (place instanceof GoodbyePlace)
-			return new GoodbyeActivity((GoodbyePlace) place, clientFactory);
+            return injector.getGoodbyeActivity().setPlace((GoodbyePlace) place);
 
 		return null;
 	}
-
 }

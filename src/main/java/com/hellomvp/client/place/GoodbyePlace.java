@@ -6,7 +6,7 @@ import com.google.gwt.place.shared.PlaceTokenizer;
 public class GoodbyePlace extends Place
 {
 	private String goodbyeName;
-	
+
 	public GoodbyePlace(String token)
 	{
 		this.goodbyeName = token;
