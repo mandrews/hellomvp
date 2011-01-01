@@ -1,3 +1,7 @@
+# Mavenized version of GWT Hello MVP application + GIN integration alluded to in article
+
+http://code.google.com/webtoolkit/doc/trunk/DevGuideMvpActivitiesAndPlaces.html
+
 # Download and unzip http://code.google.com/webtoolkit/download_2_1_rc1.html
 mvn install:install-file -DgroupId=com.google.gwt -DartifactId=gwt-user -Dversion=2.1.0.RC1 -Dpackaging=jar -Dfile=../gwt-2.1.0.RC1/gwt-user.jar 
 mvn install:install-file -DgroupId=com.google.gwt -DartifactId=gwt-dev -Dversion=2.1.0.RC1 -Dpackaging=jar -Dfile=../gwt-2.1.0.RC1/gwt-dev.jar 
